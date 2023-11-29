@@ -20,3 +20,18 @@ th {
     background-color: #333;
     color: #fff;
 }
+body {
+    /* Set the background to a triple gradient for the entire body */
+    background: linear-gradient(to right, #CFDABF, #BAC5A9, #D4D4D0);
+    /* Adjust other body styles as needed */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* Add additional styles as needed */
+}
+.column {
+    width: 20%; /* Adjust the width of the column as needed */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
