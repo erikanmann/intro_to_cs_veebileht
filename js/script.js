@@ -1,4 +1,4 @@
-// made by Erik Anmann & ChatGPT
+// made by Erik Anmann & https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
 
 function button(pageName){  // funktsioon button mis võtab sisendiks teise lehe
     window.location.href = pageName // brauser navigeerib sisendis olevale lehele
