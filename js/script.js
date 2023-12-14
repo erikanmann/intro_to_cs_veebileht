@@ -1,33 +1,32 @@
-// made by Erik Anmann & https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
-
-function button(pageName){  // funktsioon button mis võtab sisendiks teise lehe
-    window.location.href = pageName // brauser navigeerib sisendis olevale lehele
+function button(pageName){
+    window.location.href = pageName
 }
+// script.js
 
-document.addEventListener("DOMContentLoaded", function() { // DOMContentLoaded garanteerib selle, et funktsioon laheks tööle alles siis kui html on täiesti ära laadinud ennast
-    var infoBox = document.getElementById("info-box"); // infoboxi konteineri loomine
-    var infoText = document.getElementById("info-text"); // teksti loomine infobox
-    var locationMarkers = document.querySelectorAll(".location-marker"); // valib kõik "location-marker" classi elemendid ja salvestab muutujasse
+document.addEventListener("DOMContentLoaded", function() {
+    var infoBox = document.getElementById("info-box");
+    var infoText = document.getElementById("info-text");
+    var locationMarkers = document.querySelectorAll(".location-marker");
 
-    locationMarkers.forEach(function(marker) { // itereerime kõik markerid läbi
-        marker.addEventListener("mouseover", function() { // igale markerile event listener, kui hiir on markeri kohale siis funktsioon käivitub
+    locationMarkers.forEach(function(marker) {
+        marker.addEventListener("mouseover", function() {
 
             infoBox.style.display = "block";
 
-            var isTopHalf = marker.offsetTop < window.innerHeight / 2; // kontroll kas marker on akna ülemises pooles
+            var isTopHalf = marker.offsetTop < window.innerHeight / 2;
 
             if (isTopHalf) {
-                infoBox.style.top = marker.offsetTop + marker.offsetHeight + 10 + "px"; // kui marker ülemises pooles siis infoboxmarkerist alla poole
+                infoBox.style.top = marker.offsetTop + marker.offsetHeight + 10 + "px";
             } else {
-                infoBox.style.top = marker.offsetTop - infoBox.offsetHeight - 10 + "px"; // kui marker ei ole ülemises pooles siis infobox markerist ülesse poole
+                infoBox.style.top = marker.offsetTop - infoBox.offsetHeight - 10 + "px";
             }
 
-            infoBox.style.left = marker.offsetLeft - infoBox.offsetWidth / 2 + marker.offsetWidth / 2 + "px"; // infobox horizontaalselt markeri keskel
+            infoBox.style.left = marker.offsetLeft - infoBox.offsetWidth / 2 + marker.offsetWidth / 2 + "px";
 
-            infoText.textContent = marker.getAttribute("data-info"); // tekst lisatakse markerile
+            infoText.textContent = marker.getAttribute("data-info");
         });
 
-        marker.addEventListener("mouseout", function(){  // kui hiir liigub markerilt ära siis event lisener peidab infoboxi
+        marker.addEventListener("mouseout", function() {
             infoBox.style.display = "none";
         });
     });
